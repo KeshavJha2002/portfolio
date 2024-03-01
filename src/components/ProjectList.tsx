@@ -1,9 +1,18 @@
-const ProjectList = () => {
-  return (
-    <div>
-      ProjectList
-    </div>
-  )
+import React from 'react';
+
+type ProjectListProp = {
+  title: string,
+  active: boolean,
+  setSelected: (id:string) => void,
+  id: string
 }
 
-export default ProjectList
+const  ProjectList:React.FC<ProjectListProp> = ({title,active,setSelected,id}) => {
+    return (
+        <li className={`text-[14px] p-[7px] my-[0px] mx-[23px] font-bold rounded-[10px] cursor:pointer overflow-hidden justify-center items-center width1:m-auto ${active?"bg-[#398485] text-white":""}`} id="portfoliolist" onClick={() => setSelected(id)}>
+        {title}
+      </li>
+    )
+}
+
+export default ProjectList;
